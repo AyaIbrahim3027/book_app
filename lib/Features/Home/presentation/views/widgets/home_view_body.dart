@@ -1,6 +1,6 @@
-import 'package:book_app/core/utils/assets.dart';
 import 'package:book_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'best_seller_list_view_item.dart';
 import 'custom_app_bar.dart';
 import 'featured_list_view.dart';
 
@@ -18,14 +18,17 @@ class HomeViewBody extends StatelessWidget {
           height: 50,
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24),
+          padding: EdgeInsets.symmetric(horizontal: 30),
           child: Text(
             'Best Seller',
             style: Styles.textStyle18,
           ),
         ),
+        SizedBox(
+          height: 20,
+        ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
+          padding: EdgeInsets.symmetric(horizontal: 30),
           child: BestSellerListViewItem(),
         ),
       ],
@@ -33,34 +36,3 @@ class HomeViewBody extends StatelessWidget {
   }
 }
 
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 125,
-      child: Row(
-        children: [
-          AspectRatio(
-            aspectRatio: 2.5 / 4,
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                image: const DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage(
-                    AssetsData.testImage,
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Column(
-            children: [],
-          ),
-        ],
-      ),
-    );
-  }
-}
