@@ -1,4 +1,6 @@
+import 'package:book_app/Features/Search/presentation/manger/search_cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomSearchTextField extends StatelessWidget {
@@ -7,11 +9,14 @@ class CustomSearchTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: (query) {
+        context.read<SearchCubit>().searchBooks(query: query);
+      },
       decoration: InputDecoration(
         enabledBorder: buildOutlineInputBorder(),
         focusedBorder: buildOutlineInputBorder(),
         hintText: 'Search',
-        suffixIcon: IconButton(
+        prefixIcon: IconButton(
           onPressed: () {},
           icon: const Opacity(
             opacity: .8,
@@ -19,16 +24,20 @@ class CustomSearchTextField extends StatelessWidget {
               FontAwesomeIcons.magnifyingGlass,
               size: 22,
             ),
-          ),),),
+          ),
+        ),
+      ),
     );
   }
 
-  OutlineInputBorder buildOutlineInputBorder(){
+  OutlineInputBorder buildOutlineInputBorder() {
     return OutlineInputBorder(
       borderSide: const BorderSide(
         color: Colors.white,
       ),
-      borderRadius: BorderRadius.circular(12,),
+      borderRadius: BorderRadius.circular(
+        12,
+      ),
     );
   }
 }

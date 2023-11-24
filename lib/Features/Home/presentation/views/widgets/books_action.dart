@@ -2,7 +2,6 @@ import 'package:book_app/Features/Home/data/models/book_model/book_model.dart';
 import 'package:book_app/core/utils/functions/launch_url.dart';
 import 'package:book_app/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class BooksAction extends StatelessWidget {
   const BooksAction({super.key, required this.bookModel});
@@ -16,7 +15,7 @@ class BooksAction extends StatelessWidget {
         children:  [
           const Expanded(
               child: CustomButton(
-                text: '19.99 €',
+                text: 'Free',
                 fontWeight: FontWeight.w900,
                 backgroundColor: Colors.white,
                 textColor: Colors.black,
@@ -50,7 +49,7 @@ class BooksAction extends StatelessWidget {
     if (bookModel.volumeInfo.previewLink == null){
       return 'Not Available';
     } else {
-      return 'Free Preview';
+      return 'Preview';
     }
   }
 }
