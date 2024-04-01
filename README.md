@@ -8,4 +8,4 @@
 - Search 
 - Using API
 - Using cubit state management
-- Clearn code
+- Clean code
